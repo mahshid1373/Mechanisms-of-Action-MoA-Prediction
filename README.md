@@ -1,9 +1,8 @@
 # Drug Data Analysis
 
-![License](https://img.shields.io/github/license/yourusername/your-repo.svg)
+![Linkedin](https://www.linkedin.com/in/mahshidkhatami-data-analyst/)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![Contributors](https://img.shields.io/github/contributors/yourusername/your-repo.svg)
-![Issues](https://img.shields.io/github/issues/yourusername/your-repo.svg)
+![Contributors](https://github.com/mahshid1373)
 
 ## Overview
 
