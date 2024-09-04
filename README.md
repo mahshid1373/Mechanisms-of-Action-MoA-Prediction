@@ -1,6 +1,5 @@
 # Drug Data Analysis
 
-![Linkedin](https://www.linkedin.com/in/mahshidkhatami-data-analyst/)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 ![Contributors](https://img.shields.io/github/contributors/mahshid1373/Mechanisms-of-Action-MoA-Prediction.svg)
 
@@ -33,32 +32,35 @@ Welcome to the **Drug Data Analysis** project! This repository contains a compre
 
 To get a local copy up and running, follow these simple steps.
 
-### Prerequisites
+## Prerequisites
 
 Make sure you have Python 3.8+ installed on your machine. You can download Python from [python.org](https://www.python.org/).
 
-### Installation
+## Data
 
-1. **Clone the repo**
+The dataset used for this project contains detailed drug usage information. Each row represents an individual entry with specific attributes such as `drug_id`, `cp_type`, and more.
 
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+Train Dataset:
+
+| Column Name | Description                                                    |
+|-------------|----------------------------------------------------------------|
+| `sig_id`    | Unique identifier for each sample.                             |
+| `cp_type`   | Type of compound used; `trt_cp` for treatment and `ctl_vehicle` for control. |
+| `cp_time`   | Duration of the treatment in hours (e.g., 24, 48, 72).         |
+| `cp_dose`   | Dose of the compound used; `D1` for low dose and `D2` for high dose. |
+| `g-0` to `g-771` | Gene expression levels for genes 0 to 771.                |
+| `c-0` to `c-99`  | Cell viability measurements for markers 0 to 99.          |
 
 
-### How to Use This Template
+Below is a preview of the dataset showing a few sample identifiers (`sig_id`) and their corresponding drug identifiers (`drug_id`).
 
-1. **Replace placeholders**:
-   - Replace `yourusername` with your GitHub username.
-   - Replace `your-repo` with your repository name.
-   - Update contact information, project descriptions, and links as needed.
-   
-2. **Add visuals and badges**:
-   - Add actual images (like `density_plot.png` and `top_drugs.png`) to the `images/` directory in your repository.
-   - Add badges for license, Python version, contributors, etc., to provide quick visual insights about the project status.
+Drug Dataset: 
 
-3. **Customize sections**:
-   - Modify or add any sections that are specific to your project.
-   - You can add more detailed usage examples, expand on your data description, or provide additional instructions for contributors.
+| sig_id      | drug_id   |
+|-------------|-----------|
+| id_000644bb2| b68db1d53 |
+| id_000779bfc| df89a8e5a |
+| id_000a6266a| 18bb41b2c |
+| id_0015fd391| 8c7f86626 |
+| id_001626bd3| 7cbed3131 |
 
-By following this template, you can create a comprehensive and visually appealing README.md file that will make your project stand out on GitHub.
