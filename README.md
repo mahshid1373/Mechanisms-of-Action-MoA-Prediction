@@ -19,7 +19,7 @@ Welcome to the **Drug Data Analysis** project! This repository contains a compre
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Data](#data)
-- [PCA] (#Dimensionality-reduction-via-PCA)
+- [PCA](#Dimensionality-reduction-via-PCA)
 - [Model](#Model)
 - [Results](#results)
 - [Contributing](#contributing)
