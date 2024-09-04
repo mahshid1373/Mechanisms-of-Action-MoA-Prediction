@@ -2,7 +2,7 @@
 
 ![Linkedin](https://www.linkedin.com/in/mahshidkhatami-data-analyst/)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![Contributors](https://github.com/mahshid1373)
+![Contributors](https://img.shields.io/github/contributors/mahshid1373/Mechanisms-of-Action-MoA-Prediction.svg)
 
 ## Overview
 
