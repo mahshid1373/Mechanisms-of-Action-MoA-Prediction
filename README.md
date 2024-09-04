@@ -138,7 +138,6 @@ So far, neural network (NN) models appear to be performing best in this competit
 For the sake of completeness, as this competition enters its final days, here is an overview of the additional file of drug IDs (train_drug.csv).
 ![Individual feature visualisations](Figs/drug.png)
 
-With the control rows out of the way, we can focus on the “real” drugs only. This density distribution looked rather suspicious - with its multiple sharp peaks and general lack of smoothness. Let’s choose a slightly different angle: we again count the number of rows per drug_id, and then count the number of those row counts. (E.g. there are 3 drugs with a count of exactly 2 instances.) Then we treat those row counts as a categorical feature and display the drug counts via a barplot.
+With the control rows out of the way, we can focus on the “real” drugs only. This density distribution looked rather suspicious - with its multiple sharp peaks and general lack of smoothness.We again count the number of rows per drug_id, and then count the number of those row counts. (E.g. there are 3 drugs with a count of exactly 2 instances.) Then we treat those row counts as a categorical feature and display the drug counts via a barplot.
 
-Note again the square-root scaling on the y-axis. Normally, it’s not recommended to apply such transformations to barplots (since the reader should compare the bar heights to judge their differences), but here the focus is (again) on highlighting the rare instances alongside the frequent ones. Sometimes, you gotta break the rules:
 ![Individual feature visualisations](Figs/categorical.png)
