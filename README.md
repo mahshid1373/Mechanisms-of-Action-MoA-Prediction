@@ -19,6 +19,8 @@ Welcome to the **Drug Data Analysis** project! This repository contains a compre
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Data](#data)
+- [PCA] (#Dimensionality-reduction-via-PCA)
+- [Model](#Model)
 - [Results](#results)
 - [Contributing](#contributing)
 - [License](#license)
@@ -73,7 +75,7 @@ In addition, we have 3 “cp_” features: cp_type incidates the sample treatmen
 
 The sig_id is the unique primary key of the sample.
 
-## getting-started
+## Getting Started
 We start by plotting the distributions of the various predictor and target features individually
 ![Individual feature visualisations](Figs/Feature_Vis.png)
 
@@ -86,4 +88,57 @@ Similar to the gene features, the cell viability features are anonymous, labelle
 Let’s zoom into the negative tails, and add 2 more features:
 ![Individual feature visualisations](Figs/neg_tails.png)
 
+Comparing the 3 treatment features calls for a facet grid. Two features span the horizontal and vertical grid axes, the 3rd one defines the plot within each facet:
+![Individual feature visualisations](Figs/treatment_interaction.png)
 
+We find:
+
+The resulting picture is consistent with the overall view we saw above. Control treatments are similarly rare across doses and durations.
+
+One noteable difference, however, is the slightly higher percentage of 48-hour treatments for D1 doses (for both control and compound), compared to the much more equally distributed D2 bars.
+
+
+Here are the correlations between the first 200 gene features. No labels (and no title, apparently), just colour coding for high correlations (blue) and anti-correlations (red):
+![Individual feature visualisations](Figs/corr.png)
+
+
+A closer look at a subset of features:
+![Individual feature visualisations](Figs/corr2.png)
+
+
+Here, we pick 4 example pairs of features and plot them together with simple linear fits. The individual plot titles give the feature names and their Pearson correlation coefficient values:
+![Individual feature visualisations](Figs/scatter.png)
+
+Let’s start with breaking down by treatment features the distributions of 4 gene and cell features that were chosen completely at random. Here, the 4 features are arranged vertically while the treatment duration defines the horizonal facets. The treatment dose is colour-coded. The area where both distributions overlap is a mix between both colours:
+![Individual feature visualisations](Figs/gene_dist.png)
+
+
+# Dimensionality reduction via PCA
+Given the notable amount of correlations in the gene and, especially, the cell features, let’s test some dimensionality reduction methods, to see by how much we could reduce our feature space.
+
+Here, we will focus on principal component analysis (PCA). PCA is essentially a rotation of the parameter space so that the new axes (the “principal components” aka PC) are orthogonal and align with the directions of maximum variance. We’ll start with the gene features, then look at the cell features.
+
+
+Our first plot will show the amount of variance explained by each PC for the first 5 PCs (a “Scree Plot”), alongside the direction and magnitude (colour) of the contribution of the original features to the first 2 PCs. The PCA visuals are produced via the excellent factoextra package.
+![Individual feature visualisations](Figs/pca_gene.png)
+
+
+I’m showing the top 15 variables in each PC dimension. (The dashed horizontal line shows the expected value for a uniform distribution):
+![Individual feature visualisations](Figs/pca_3.png)
+
+
+# Model
+In the final step of this exploration, let’s use some of the insights that we gained to build a baseline model to get us started on the leaderboard. This model won’t be competitive on its own, but can be easily adjusted and expanded.
+
+So far, neural network (NN) models appear to be performing best in this competition. Therefore, we will build our own starter NN using Keras/Tensorflow.
+![Individual feature visualisations](Figs/model.png)
+
+
+# Drug
+For the sake of completeness, as this competition enters its final days, here is an overview of the additional file of drug IDs (train_drug.csv).
+![Individual feature visualisations](Figs/drug.png)
+
+With the control rows out of the way, we can focus on the “real” drugs only. This density distribution looked rather suspicious - with its multiple sharp peaks and general lack of smoothness. Let’s choose a slightly different angle: we again count the number of rows per drug_id, and then count the number of those row counts. (E.g. there are 3 drugs with a count of exactly 2 instances.) Then we treat those row counts as a categorical feature and display the drug counts via a barplot.
+
+Note again the square-root scaling on the y-axis. Normally, it’s not recommended to apply such transformations to barplots (since the reader should compare the bar heights to judge their differences), but here the focus is (again) on highlighting the rare instances alongside the frequent ones. Sometimes, you gotta break the rules:
+![Individual feature visualisations](Figs/categorical.png)
